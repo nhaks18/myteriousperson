@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Nhak</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #ffe6f2;
+      color: #4a2c2a;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #ffb6d9, #ffd6e8);
+    }
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    header p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .letter {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: #ffb6d9;
+      margin-top: 40px;
+      font-size: 18px;
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes floatHearts {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-200px) scale(1.6); opacity: 0; }
+    }
+    .fade {
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+    .letter {
+      opacity: 0;
+      animation: fadeIn 1.4s ease-out forwards;
+    }
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      color: #ff5c8a;
+      font-size: 24px;
+      animation: floatHearts 4s linear infinite;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy Birthday, Sarah! 🎂</h1>
+    <p>Accept this small gratitude of mine.</p>
+  </header>
+
+  <div class="section">
+    <h2>My Letters to You</h2>
+
+    <div class="letter">
+      <h3>💌 Letter 1</h3>
+      <p>
+        Matanda kana, WHAHAHAHA I just wanted to remind you that, in your darkest night and lightest day I will always be right here.
+      </p>
+    </div>
+
+    <div class="letter">
+      <h3>💌 Letter 2</h3>
+      <p>
+        Thank you for existing, being funny, and being the standard for my love. I realize my mistake and will make some changes to bring us back together again. To remove the doubts and bring back the trust again. 
+      </p>
+    </div>
+
+    <div class="letter">
+      <h3>💌 Letter 3</h3>
+      <p>
+        I know, I did a lot of mistake in the past, and I really regret it. Hopefully this time you, I will finally prove to you how much I cared for you.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Cat Picks 📸</h2>
+    <div class="gallery">
+      <img src="src/1.png" />
+      <img src="src/2.png" />
+      <img src="src/3.png" />
+      <img src="src/4.png" />
+    </div>
+  </div>
+
+  <footer>
+    Thank you!🎂
+  </footer>
+  <script>
+    // Hearts floating animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 800);
+
+    // Fade-in sections
+    window.onload = () => {
+      document.querySelector('header').classList.add('fade');
+      document.querySelectorAll('.letter').forEach((el, i) => {
+        el.style.animationDelay = `${i * 0.4}s`;
+      });
+    }
+  </script>
+</body>
+</html>
